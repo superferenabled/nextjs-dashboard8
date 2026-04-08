@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { PokemonGrid, PokemonsResponse, SimplePokemon } from "@/app/pokemons";
+import { notFound } from "next/navigation";
 
 const getPokemons = async (
   limit: number,
@@ -12,6 +13,7 @@ const getPokemons = async (
     id: pokemon.url.split("/").at(-2)!,
     name: pokemon.name,
   }));
+  // notFound();
   return pokemons;
 };
 
