@@ -1,6 +1,7 @@
 import { Pokemon } from "@/app/pokemons";
 import { use } from "react";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 interface Params {
   id: string;
@@ -27,11 +28,15 @@ export const generateMetadata = async ({ params }: RouteProps) => {
 };
 
 const getPokemon = async (id: string): Promise<Pokemon> => {
-  const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
-    cache: "force-cache",
-  }).then((res) => res.json());
-  console.log(`Se cargó: ${pokemon.name}`);
-  return pokemon;
+  try {
+    const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
+      cache: "force-cache",
+    }).then((res) => res.json());
+    console.log(`Se cargó: ${pokemon.name}`);
+    return pokemon;
+  } catch (ex) {
+    notFound();
+  }
 };
 
 // export const PokemonPage = ({ params, searchParams }: RouteProps) => {
