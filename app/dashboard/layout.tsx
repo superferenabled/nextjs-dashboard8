@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Sidebar } from "@/app/components";
 
 export const DashboardLayout = ({ children }: React.PropsWithChildren) => {
@@ -7,7 +7,9 @@ export const DashboardLayout = ({ children }: React.PropsWithChildren) => {
       <div className="flex flex-row justify-evenly relative w-screen">
         <Sidebar />
         <div className="p-2 text-slate-900 border-2 border-red-600 w-full ml-100">
-          {children}
+          <Suspense fallback={<>cargando pokemoes siempre peligrosos!</>}>
+            {children}
+          </Suspense>
         </div>
       </div>
     </div>
