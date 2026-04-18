@@ -11,7 +11,7 @@ interface Props {
 
 export const SimpleWidget = ({ title, subTitle, label, icon, href }: Props) => {
   return (
-    <div className="bg-white shadow-xl p-3 sm:min-w-[25%] min-w-full  rounded-2xl border-1 border-gray-50 mx-2 my-2">
+    <div className="bg-white shadow-xl p-3 sm:min-w-[25%] min-w-full  rounded-2xl border border-gray-50 mx-2 my-2">
       <div className="flex flex-col">
         {label && (
           <div>
