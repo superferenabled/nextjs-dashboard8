@@ -1,4 +1,5 @@
 import { SimpleWidget } from '@/app/components';
+import { WidgetsGrid } from '@/app/components/dashboard/WidgetsGrid';
 import React from 'react'
 
 export const MainPage = () => {
@@ -7,13 +8,7 @@ export const MainPage = () => {
       <h1 className='mt-2 text-3xl'>Dashboard</h1>
       <span className='text-xl'>Información general</span>
 
-      <div className='flex flex-wrap p-2'>
-        <SimpleWidget />
-        <SimpleWidget />
-        <SimpleWidget />
-        <SimpleWidget />
-        <SimpleWidget />
-      </div>
+      <WidgetsGrid />
     </div>
   )
 }
