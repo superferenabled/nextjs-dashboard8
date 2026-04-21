@@ -7,6 +7,12 @@ interface Props {
   initialCounter?: number;
 }
 
+const getApiCounter = async() => {
+  const data = await fetch('/api/counter').then(res => res.json());
+  console.log(data);
+  return data;
+};
+
 export const CartCounter = ({ initialCounter = 0 }: Props) => {
   // const [counter, setCounter] = useState(initialCounter);
 
@@ -21,9 +27,14 @@ export const CartCounter = ({ initialCounter = 0 }: Props) => {
     dispatch(substractOne());
   };
 
-  useEffect(()=> {
-    dispatch(initCounterState(initialCounter));
-  }, [dispatch, initialCounter])
+  useEffect(() => {
+    getApiCounter().then(({count}) => dispatch(initCounterState(count)));
+  }, [dispatch])
+  
+
+  // useEffect(()=> {
+  //   dispatch(initCounterState(initialCounter));
+  // }, [dispatch, initialCounter])
 
   return (
     <div className="flex flex-col items-center justify-center w-full h-full">
