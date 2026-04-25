@@ -6,7 +6,7 @@ export const DashboardLayout = ({ children }: React.PropsWithChildren) => {
     <div className="bg-slate-100 overflow-y-scroll w-screen h-screen antialiased text-slate-300 selection:bg-blue-600 selection:text-white">
       <div className="flex flex-row justify-evenly relative w-screen">
         <Sidebar />
-        <div className="p-2 text-slate-900 border-2 border-red-600 w-full ml-100">
+        <div className="p-2 text-slate-900 w-full ml-100">
           <Suspense fallback={<>cargando pokemoes siempre peligrosos!</>}>
             {children}
           </Suspense>

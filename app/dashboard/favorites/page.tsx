@@ -1,15 +1,17 @@
-import { PokemonGrid } from "@/app/pokemons";
+import { FavoritePokemons } from "@/app/components";
 
 export const FavoritesPage = () => {
   return (
     <div className="flex flex-col">
       <span className="text-5xl my-2">
-        Listado de pokemones
+        Pokemones Favoritos
         <small className="text-blue-500"> Global State</small>
       </span>
-      <PokemonGrid pokemons={[]} />
+      <FavoritePokemons />
     </div>
   );
 };
+
+
 
 export default FavoritesPage;
